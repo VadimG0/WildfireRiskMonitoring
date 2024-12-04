@@ -1,84 +1,50 @@
-### Project Idea: Wildfire Risk Monitoring and Notification System
+**Objective:** Develop a basic web-based dashboard that displays wildfire risk levels for user-specified locations using real-time weather data. This project simplifies the risk assessment to a display-only system without notifications or user accounts, making it achievable within a week.
 
-**Objective:** Develop a software application that pulls real-time weather and environmental data to assess wildfire risk and sends notifications to users when the risk level is high. This will help residents, emergency services, and local authorities to stay informed and take preventative actions.
+* * * * *
 
 ### Key Features:
 
-1.  **Data Integration**:
+1.  **Weather Data Integration**:
 
-    -   Use publicly available weather data APIs (e.g., OpenWeatherMap or NOAA) to fetch real-time temperature, humidity, wind speed, and precipitation data.
-    -   Integrate environmental data such as vegetation type and dryness levels to assess wildfire risk.
-2.  **Risk Calculation**:
+    -   Use a weather API (e.g., OpenWeatherMap) to fetch real-time temperature, wind speed, and humidity for a given location.
+    -   Simplify the wildfire risk calculation to a basic formula:
+        -   High temperature + low humidity + high wind speed = High Risk
+        -   Provide three risk levels: **Low**, **Medium**, and **High**.
+2.  **Location Search**:
 
-    -   Implement a simple algorithm that calculates a wildfire risk score based on temperature, humidity, wind speed, and other relevant weather conditions.
-    -   Assign risk levels such as **Low, Medium, High**, and **Extreme** based on the calculated score.
-3.  **User Interface**:
+    -   Allow users to enter a city name or zip code to retrieve and display the wildfire risk level for that location.
+3.  **Web-Based Interface**:
 
-    -   Create a simple, user-friendly interface where users can view the current wildfire risk for their location.
-    -   Allow users to input their location (e.g., zip code or city) to get personalized data.
-4.  **Notification System**:
+    -   A single-page web app with:
+        -   Input field for the location.
+        -   Display of current weather data (temperature, humidity, wind speed).
+        -   Display of the wildfire risk level based on simple thresholds.
+4.  **Static Risk Guide**:
 
-    -   Set up a notification system using an email API (e.g., SMTP, SendGrid) or push notifications to alert users when the wildfire risk level reaches **High** or **Extreme**.
-    -   Notifications should include information on the current risk level and safety tips.
-5.  **Data Logging**:
+    -   Include a guide explaining the risk levels and what they mean (e.g., "High Risk: Conditions are favorable for wildfires to spread quickly.").
 
-    -   Implement a basic data logger that records the daily risk scores and sends an email summary report to users weekly.
-6.  **User Profile Management**:
-
-    -   Create user accounts with settings to customize notification preferences (e.g., notification threshold levels, email preferences).
+* * * * *
 
 ### Steps to Implement:
 
-1.  **Research Data Sources**: Identify reliable sources for real-time weather data and environmental statistics.
-2.  **Design and Build the Backend**:
-    -   Develop a server-side application to fetch and process data.
-    -   Implement algorithms to calculate risk scores based on data.
-3.  **Create the Frontend**:
-    -   Use frameworks like **Flask** for a web interface or **React** for a more interactive experience.
-4.  **Notification Implementation**:
-    -   Use libraries like **smtplib** for email notifications or integrate services like **SendGrid** for more robust features.
-5.  **Testing**:
-    -   Validate data integration, risk calculation logic, and notification functionality.
-6.  **Documentation**:
-    -   Prepare a detailed report outlining the installation, usage, project goals, data structure, and test cases.
+1.  **Set Up API Integration**:
 
-### Project Report Outline:
+    -   Obtain an API key from OpenWeatherMap or similar service.
+    -   Write a function to fetch weather data based on user input.
+2.  **Wildfire Risk Calculation**:
 
-1.  **Project Goals**:
+    -   Define simple thresholds for Low, Medium, and High risk.
+        -   Example:
+            -   Low: Temperature < 75°F, Humidity > 40%, Wind Speed < 10 mph
+            -   Medium: Temperature 75--90°F, Humidity 20--40%, Wind Speed 10--20 mph
+            -   High: Temperature > 90°F, Humidity < 20%, Wind Speed > 20 mph
+3.  **Build the Frontend**:
 
-    -   Define the objective of creating an early warning system for wildfire risk based on real-time data.
-2.  **Significance and Novelty**:
+    -   Use basic HTML, CSS, and JavaScript (or a lightweight framework like **Flask** for Python or **React** for a dynamic experience).
+    -   Add a simple form for users to input location data.
+4.  **Display Results**:
 
-    -   Discuss the importance of monitoring wildfire risk and how the project fills a gap in real-time personal and community awareness.
-3.  **Installation and Usage Instructions**:
+    -   Show weather data (e.g., temperature, humidity, wind speed) and the calculated wildfire risk level.
+5.  **Static Risk Guide**:
 
-    -   Provide clear, step-by-step guidance for setting up the software on a local machine or web server.
-4.  **Code Structure**:
-
-    -   Include a diagram or flowchart that explains how data flows within the application.
-5.  **List of Functionalities and Verification**:
-
-    -   Describe the core functionalities, such as data fetching, risk score calculation, and notifications, and show test results.
-6.  **Showcasing Achievement of Project Goals**:
-
-    -   Present results from testing in different scenarios (e.g., high-risk and low-risk conditions).
-7.  **Discussion and Conclusions**:
-
-    -   Review any challenges, limitations (e.g., data access limitations), and how course learnings were applied.
-
-### Project Timeline (Approximate):
-
--   **Week 1**: Research data sources and define the project structure. Start building the backend.
--   **Week 2**: Develop risk calculation logic and integrate data APIs. Begin frontend design.
--   **Week 3**: Complete frontend and implement the notification system.
--   **Week 4**: Test functionalities, create a user manual, and finalize the report.
--   **Final Week**: Perform final tests, debug, and prepare the project for submission.
-
-### Tools and Technologies:
-
--   **Programming Language**: Python (backend) and JavaScript (frontend)
--   **Frameworks**: Flask (web server) or Django for a more extensive project, React for a dynamic UI
--   **APIs**: OpenWeatherMap, NOAA, or other weather data sources
--   **Notification Service**: SMTP, SendGrid
--   **Database**: SQLite or a simple JSON-based storage for user data
--   **Version Control**: GitHub for source code management
+    -   Add a small section explaining risk levels and associated precautions.
