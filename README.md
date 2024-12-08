@@ -37,7 +37,7 @@ Wildfires are devastating natural disasters that can cause extensive damage to e
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/username/WildfireRiskMonitoring
+    git clone https://github.com/VadimG0/WildfireRiskMonitoring
     cd WildfireRiskMonitoring
     ```
 2. **Install Dependencies**:
